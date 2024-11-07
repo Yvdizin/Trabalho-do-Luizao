@@ -1,28 +1,11 @@
 package dominio;
 
-public class Curso extends BaseParametro{
-    private int codigoSubClasse;
-    private double valor;
-    public int getCodigoSubClasse() {
-        return codigoSubClasse;
-    }
-    public void setCodigoSubClasse(int codigoSubClasse) {
-        this.codigoSubClasse = codigoSubClasse;
-    }
-    public double getValor() {
-        return valor;
-    }
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-    public Curso() {
+public class Curso extends BaseParametro {
+    public Curso(){
         super();
     }
-    public Curso(int codigo, String nome, String descricao, int cargahoraria, int codigoSubClasse, double valor) {
+
+    public Curso(int codigo, String nome, String descricao, int cargahoraria){
         super(codigo, nome, descricao, cargahoraria);
-        this.codigoSubClasse = codigoSubClasse;
-        this.valor = valor;
     }
-    
-    
 }

@@ -2,18 +2,18 @@ package visao;
 
 import java.util.ArrayList;
 
-import dominio.ClasseCurso;
-import servico.ClasseCursoServico;
+import dominio.Curso;
+import servico.CursoServico;
 
 public class ClasseCursoVisao {
 
-    private ClasseCursoServico srv;
+    private CursoServico srv;
 
     public ClasseCursoVisao(){
-        this.srv = new ClasseCursoServico();
+        this.srv = new CursoServico();
     }
     public void  Criar(){
-        ClasseCurso cp = new ClasseCurso();
+        Curso cp = new Curso();
         cp.setCodigo(0);
         cp.setNome("TEste");
         cp.setDescricao("Teste");
@@ -22,22 +22,22 @@ public class ClasseCursoVisao {
     }
 
     public void Exibir(){
-        ArrayList<ClasseCurso> lista = this.srv.LerTodos();
+        ArrayList<Curso> lista = this.srv.LerTodos();
         System.out.println("=====================================================================================");
-        for (ClasseCurso cp : lista) {
-           this.imprimirPorLinha(cp);
+        for (Curso cp : lista) {
+           this.imprimirEmLinha(cp);
        }
     }
 
     public void ExibirPorLinha(){
-        ArrayList<ClasseCurso> lista = this.srv.LerTodos();
+        ArrayList<Curso> lista = this.srv.LerTodos();
         System.out.println("=====================================================================================");
-        for (ClasseCurso cp : lista) {
-           this.imprimirPorLinha(cp);
+        for (Curso cp : lista) {
+           this.imprimirEmLinha(cp);
         }
     }
 
-    private void imprimirPorLinha(ClasseCurso cp){
+    private void imprimirEmLinha(Curso cp){
         
         String mensagem = "";
         mensagem += "Classe do Curso: ";

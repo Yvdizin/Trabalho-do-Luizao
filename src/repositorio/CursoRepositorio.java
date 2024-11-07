@@ -1,19 +1,19 @@
 package repositorio;
 
-import dominio.ClasseCurso;
-import fakedb.ClasseCursoFakeDB;
+import dominio.Curso;
+import fakedb.CursoFakeDB;
 
-public class ClasseCursoRepositorio extends BaseRepositorio<ClasseCurso> {
+public class CursoRepositorio extends BaseRepositorio<Curso> {
 
-    private ClasseCursoFakeDB db;
+    private CursoFakeDB db;
 
-    public ClasseCursoRepositorio(){
-        this.db = new ClasseCursoFakeDB();
+    public CursoRepositorio(){
+        this.db = new CursoFakeDB();
         this.FonteDeDados = this.db.getTabela();
     }
 
     @Override
-    public ClasseCurso Create(ClasseCurso instancia) {                      
+    public Curso Create(Curso instancia) {                      
         int proxChave = this.FonteDeDados.getLast().getCodigo() + 1;
         instancia.setCodigo(proxChave);
         this.FonteDeDados.add(instancia);
@@ -21,8 +21,8 @@ public class ClasseCursoRepositorio extends BaseRepositorio<ClasseCurso> {
     }
 
     @Override
-    public ClasseCurso Read(int chave) {
-        for (ClasseCurso cp : this.FonteDeDados) {
+    public Curso Read(int chave) {
+        for (Curso cp : this.FonteDeDados) {
             if (cp.getCodigo() == chave){
             return cp;
             }
@@ -31,8 +31,8 @@ public class ClasseCursoRepositorio extends BaseRepositorio<ClasseCurso> {
     }
 
     @Override
-    public ClasseCurso Update(ClasseCurso instancia) {
-        ClasseCurso cp = this.Read(instancia.getCodigo());
+    public Curso Update(Curso instancia) {
+        Curso cp = this.Read(instancia.getCodigo());
         if(cp != null){
             cp.setDescricao(instancia.getDescricao());
             return cp;
@@ -43,8 +43,8 @@ public class ClasseCursoRepositorio extends BaseRepositorio<ClasseCurso> {
     }
 
     @Override
-    public ClasseCurso Delete(int chave) {
-        ClasseCurso cp = this.Read(chave);
+    public Curso Delete(int chave) {
+        Curso cp = this.Read(chave);
         if(cp != null){
             this.FonteDeDados.remove(cp);
             return cp;
